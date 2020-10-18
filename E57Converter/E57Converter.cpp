@@ -552,7 +552,7 @@ namespace e57
 		(*oct)->queryBoundingBox(extMinBB, extMaxBB, (*querys)[queryID].depth, blob);
 		(*rawE57CloudBuffer)[p] = pcl::PointCloud<PointE57>::Ptr(new pcl::PointCloud<PointE57>());
 		pcl::fromPCLPointCloud2(*blob, *(*rawE57CloudBuffer)[p]);
-		PCL_INFO("[e57::ExportToPCD_Query] End. \n");
+		PCL_INFO("[e57::ExportToPCD_Query] End.\n");
 		return 0;
 	}
 	
@@ -917,7 +917,9 @@ namespace e57
 			}
 
 		}
-
+		(*outPointCloud)->resize(e57Cloud_CB->size());
+				for (std::size_t pi = 0; pi < e57Cloud_CB->size(); ++pi)
+					(*(*outPointCloud))[pi] = (*e57Cloud_CB)[pi];
 		//
 		PCL_INFO("[e57::ExportToPCD_Process] End. \n");
 		return 0;
@@ -982,6 +984,7 @@ namespace e57
 				//
 				std::future<int> query = std::async(ExportToPCD_Query, &oct, &querys, queryID+1, &rawE57CloudBuffer, !p);
 				std::future<int> process = std::async(ExportToPCD_Process, &querys, queryID, &rawE57CloudBuffer, p, &scanInfo,  &outPointCloud);
+
 				int rQuery = query.get();
 				int rProcess = process.get();
 				if (rQuery != 0) throw pcl::PCLException("ExportToPCD_Query failed - " + std::to_string(rQuery));
