@@ -1,4 +1,5 @@
 cmake_minimum_required( VERSION 3.2 )
+set(CMAKE_CXX_STANDARD 17)
 
 #
 option(POINT_E57_WITH_RGB "E57 per-point data can contain scanned RGB or not" ON)

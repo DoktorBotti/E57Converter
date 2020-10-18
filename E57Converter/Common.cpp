@@ -64,7 +64,7 @@ Eigen::Vector3d GetAzimuth0DegreeVector(unsigned int type)
 	case AzimuthBase::A0_NX: return Eigen::Vector3d(-1.0, 0.0, 0.0); break;
 	case AzimuthBase::A0_NY: return Eigen::Vector3d(0.0, -1.0, 0.0); break;
 	case AzimuthBase::A0_NZ: return Eigen::Vector3d(0.0, 0.0, -1.0); break;
-	default: throw std::exception("type is not support."); break;
+	default: throw std::runtime_error("type is not support."); break;
 	}
 }
 
@@ -79,7 +79,7 @@ Eigen::Vector3d GetAzimuth90DegreeVector(unsigned int type)
 	case AzimuthBase::A90_NX: return Eigen::Vector3d(-1.0, 0.0, 0.0); break;
 	case AzimuthBase::A90_NY: return Eigen::Vector3d(0.0, -1.0, 0.0); break;
 	case AzimuthBase::A90_NZ: return Eigen::Vector3d(0.0, 0.0, -1.0); break;
-	default: throw std::exception("type is not support."); break;
+	default: throw std::runtime_error("type is not support."); break;
 	}
 }
 
@@ -308,7 +308,7 @@ Eigen::Vector3d RAEToXYZ(RAEMode type, const Eigen::Vector3d& rae)
 		len_e = r * c_e;
 		break;
 	default:
-		throw std::exception("ElevationMode is not support.");
+		throw std::runtime_error("ElevationMode is not support.");
 		break;
 	}
 
@@ -338,7 +338,7 @@ Eigen::Vector3d XYZToRAE(RAEMode type, const Eigen::Vector3d& xyz)
 		rae.z() = std::asin(len_n);
 		break;
 	default:
-		throw std::exception("ElevationMode is not support.");
+		throw std::runtime_error("ElevationMode is not support.");
 		break;
 	}
 
@@ -359,7 +359,7 @@ Eigen::Vector2d RAEToUV(RAEMode type, const Eigen::Vector3d& rae)
 		p2.y() = std::min(std::max(0.0, p2.y()), 1.0);
 		return p2;
 	default:
-		throw std::exception("RAEMode is not support.");
+		throw std::runtime_error("RAEMode is not support.");
 		break;
 	}
 }

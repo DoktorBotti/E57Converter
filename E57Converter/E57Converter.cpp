@@ -1254,9 +1254,9 @@ namespace e57
 				point.g = color;
 				point.b = color;*/
 				point.rgb = pcd.intensity;
-				normal.normal_x = pcd.normal_x;
+				/*normal.normal_x = pcd.normal_x;
 				normal.normal_y = pcd.normal_y;
-				normal.normal_z = pcd.normal_z;
+				normal.normal_z = pcd.normal_z;*/
 			}
 
 			//

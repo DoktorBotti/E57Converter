@@ -7,6 +7,7 @@
 #include <pcl/octree/octree_search.h>
 #include <pcl/octree/octree_pointcloud_adjacency.h>
 #include <pcl/search/search.h>
+#include <pcl/segmentation/supervoxel_clustering.h>
 #include <pcl/segmentation/boost.h>
 
 

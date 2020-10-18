@@ -126,7 +126,7 @@ namespace e57
 		{
 			std::cerr << "[PrintE57Format] Got an e57::E57Exception, what=" << ex.what() << "." << std::endl;
 		}
-		catch (std::exception& ex)
+		catch (std::runtime_error& ex)
 		{
 			std::cerr << "[PrintE57Format] Got an std::exception, what=" << ex.what() << "." << std::endl;
 		}
@@ -396,7 +396,7 @@ namespace e57
 					break;
 
 					default:
-						throw std::exception("Coordinate system invalid!!?");
+						throw std::runtime_error("Coordinate system invalid!!?");
 						break;
 					}
 				}

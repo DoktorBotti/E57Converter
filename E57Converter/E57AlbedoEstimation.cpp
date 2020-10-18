@@ -166,9 +166,9 @@ namespace e57
 			{
 				outPoint.intensity = xVecNorm;
 				xVec /= xVecNorm;
-				outPoint.normal_x = xVec.x();
+				/*outPoint.normal_x = xVec.x();
 				outPoint.normal_y = xVec.y();
-				outPoint.normal_z = xVec.z();
+				outPoint.normal_z = xVec.z();*/
 				return true;
 			}
 			else
